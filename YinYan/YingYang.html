@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ying Yang</title>
+    <style>
+        /* global styles to center the symbol */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* outer circle */
+        div {
+            box-sizing: border-box;
+            width: min(30vw, 95vmin);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: #eef1f4; /* Change white color */
+            border: 0.15rem solid #151a1f; /* Change black color */
+            overflow: hidden;
+            animation: rotate 20s linear infinite;
+        }
+
+        /* rotation animation */
+        @keyframes rotate {
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        /* yin and yang circles */
+        div::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(
+                closest-side circle at 50% 25%,
+                #151a1f, /* Change black color */
+                #151a1f 25%,
+                #eef1f4 calc(25% + 1px), /* Change white color */
+                #eef1f4 100%,
+                transparent calc(100% + 1px)
+            ),
+            radial-gradient(
+                closest-side circle at 50% 75%,
+                #eef1f4, /* Change white color */
+                #eef1f4 25%,
+                #151a1f calc(25% + 1px), /* Change black color */
+                #151a1f 100%,
+                transparent calc(100% + 1px)
+            );
+        }
+
+        /* circle background */
+        div::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(
+                to right,
+                #eef1f4, /* Change white color */
+                #eef1f4 50%,
+                #151a1f 50%, /* Change black color */
+                #151a1f
+            );
+            z-index: -1;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #151a1f;
+            }
+            div {
+                border-color: #eef1f4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

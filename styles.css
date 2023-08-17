@@ -1,0 +1,1164 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: hidden;
+}
+
+/* Ensure horizontal scrolling */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#home {
+  --cursor-1-bg: #151a1f; /* Grid fill color */
+  --cursor-1-bg-line: #1f272e; /* Grid stroke color */
+  background-color: var(--cursor-1-bg);
+  background-image: linear-gradient(
+      var(--cursor-1-bg-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    ),
+    linear-gradient(var(--cursor-1-bg-line) 1px, transparent 1px),
+    linear-gradient(
+      to bottom,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    );
+  background-size: 50px 100px;
+  background-position: center;
+  background-repeat: repeat;
+  cursor: none;
+  max-width: 100%; /* Set the maximum width */
+  margin-left: auto; /* Center the section horizontally */
+  margin-right: auto; /* Center the section horizontally */
+}
+
+#about {
+  --cursor-1-bg: #f1f68f; /* Grid fill color */
+  --cursor-1-bg-line: #1f272e; /* Grid stroke color */
+  background-color: var(--cursor-1-bg);
+  background-image: linear-gradient(
+      var(--cursor-1-bg-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    ),
+    linear-gradient(var(--cursor-1-bg-line) 1px, transparent 1px),
+    linear-gradient(
+      to bottom,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    );
+  background-size: 50px 100px;
+  background-position: center;
+  background-repeat: repeat;
+  cursor: none;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#skills {
+  /* Same background style as #about */
+  --cursor-1-bg: #b0efda;
+  --cursor-1-bg-line: #151a1f;
+  background-color: var(--cursor-1-bg);
+  background-image: linear-gradient(
+      var(--cursor-1-bg-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    ),
+    linear-gradient(var(--cursor-1-bg-line) 1px, transparent 1px),
+    linear-gradient(
+      to bottom,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    );
+  background-size: 50px 100px;
+  background-position: center;
+  background-repeat: repeat;
+  cursor: none;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-skills {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.desc-container {
+  width: 100%;
+  max-width: 800px; /* Adjust the max-width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #151a1f;
+}
+
+/* Style the description section */
+.desc {
+  padding: 20px;
+}
+
+/* Style the heading */
+.desc h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style the paragraph */
+.desc p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw; /* Set the container's width to 100% of the screen width */
+}
+
+.circle {
+  position: relative;
+  width: calc(
+    33.33vw - 20px
+  ); /* Each circle's width is one-third of the screen width minus spacing */
+  height: calc(
+    33.33vw - 20px
+  ); /* Set the height equal to the width to maintain a circle shape */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #151a1f;
+  font-size: 18px;
+
+  border: 2px solid #151a1f; /* Add a 2px solid red border */
+  background-color: #b0efda;
+  overflow: hidden; /* Hide the overflowing animation */
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  background-color: #151a1f;
+  border-radius: 50%;
+  transition: transform 0.5s ease-out;
+}
+
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* Initially hide the text */
+  transition: opacity 0.3s ease;
+  text-align: center;
+  color: white;
+  width: 80%; /* Adjust the width as needed */
+}
+
+.circle:hover .circle-text {
+  opacity: 1; /* Show the text on hover */
+}
+
+.circle:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.github-button {
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #151a1f;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: none;
+  transition: background-color 0.3s ease;
+  opacity: 0;
+}
+
+.circle:hover .github-button {
+  background-color: #b0efda;
+  opacity: 1;
+  color: #151a1f;
+}
+
+#webdev {
+  /* Same background style as #about */
+  --cursor-1-bg: #d5c9fb;
+  --cursor-1-bg-line: #151a1f;
+  background-color: var(--cursor-1-bg);
+  background-image: linear-gradient(
+      var(--cursor-1-bg-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    ),
+    linear-gradient(var(--cursor-1-bg-line) 1px, transparent 1px),
+    linear-gradient(
+      to bottom,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    );
+  background-size: 50px 100px;
+  background-position: center;
+  background-repeat: repeat;
+  cursor: none;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the cards horizontally */
+  align-items: center; /* Center the cards vertically */
+  gap: 80px; /* Gap between cards */
+}
+
+.card {
+  position: relative;
+  width: 25vw;
+  height: 250px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  align-items: center;
+  border-radius: 0;
+  cursor: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card:hover .card-content {
+  display: flex;
+}
+
+video {
+  width: 25vw;
+  height: 250px;
+  object-fit: cover;
+}
+
+#design {
+  /* Same background style as #about */
+  --cursor-1-bg: #ffbc90;
+  --cursor-1-bg-line: #151a1f;
+  background-color: var(--cursor-1-bg);
+  background-image: linear-gradient(
+      var(--cursor-1-bg-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    ),
+    linear-gradient(var(--cursor-1-bg-line) 1px, transparent 1px),
+    linear-gradient(
+      to bottom,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    );
+  background-size: 50px 100px;
+  background-position: center;
+  background-repeat: repeat;
+  cursor: none;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; 
+}
+
+.heading {
+  height: 5%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 90vh; /* Adjust as needed */
+}
+
+/* Adjust swiper-slide styles for vertical sliding */
+.swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Fill the height */
+}
+
+/* Add transition effect for vertical sliding */
+.swiper-wrapper {
+  transition-property: transform;
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+}
+
+/* Image Accordions General */
+.container-general {
+  padding: 75px 0;
+  margin: 0 auto;
+  width: 90vw;
+}
+.container-general .gallery-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70vh;
+}
+.container-general .gallery-wrap .item {
+  flex: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  transition: all 0.8s ease;
+}
+.container-general .gallery-wrap .item:hover {
+  flex: 7;
+}
+
+.gallery-wrap .item {
+  filter: grayscale(100%);
+}
+
+/* Disable filter on hover */
+.gallery-wrap .item:hover {
+  filter: none;
+}
+
+/* Image Accordions Effect 1 */
+.wrap-effect-1 .item:nth-of-type(1) {
+  background-image: url("./assets/design\ 18.1.png");
+}
+.wrap-effect-1 .item:nth-of-type(2) {
+  background-image: url("./assets/design\ hoodie\ 3.png");
+}
+.wrap-effect-1 .item:nth-of-type(3) {
+  background-image: url("./assets/design\ 23.png");
+}
+.wrap-effect-1 .item:nth-of-type(4) {
+  background-image: url("./assets/design\ hoodie\ 7.png");
+}
+.wrap-effect-1 .item:last-of-type {
+  background-image: url("./assets/design\ 21.png");
+}
+
+/* Image Accordions Effect 2 */
+.wrap-effect-2 .item {
+  transition: transform 0.7s ease-in-out, box-shadow 0.7s ease-in-out,
+    filter 0.7s ease-in-out;
+}
+.wrap-effect-2 .item:hover {
+  transform: translate3d(0, 0, 100px);
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+.wrap-effect-2 .item:nth-of-type(1) {
+  background-image: url("./assets/logo1.png");
+}
+.wrap-effect-2 .item:nth-of-type(2) {
+  background-image: url("./assets/lust\ pride\ official\ logo\ 1.png");
+}
+.wrap-effect-2 .item:nth-of-type(3) {
+  background-image: url("./assets/Artboard\ 4_1.png");
+}
+.wrap-effect-2 .item:nth-of-type(4) {
+  background-image: url("./assets/logo.png");
+}
+.wrap-effect-2 .item:last-of-type {
+  background-image: url("./assets/lust\ pride\ official\ logo.png");
+}
+
+/* Image Accordions Effect 4 */
+.wrap-effect-4 .item {
+  transition: box-shadow 0.7s ease-in-out, filter 0.7s ease-in-out;
+}
+.wrap-effect-4 .item:hover {
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  filter: saturate(2) contrast(120%);
+}
+.wrap-effect-4 .item:nth-of-type(1) {
+  background-image: url("./assets/wir\ suchen\ dich\ flyers\ post\ ig\ and\ fb.png");
+}
+.wrap-effect-4 .item:nth-of-type(2) {
+  background-image: url("./assets/Artboard\ 1\ copy\ 2.png");
+}
+.wrap-effect-4 .item:nth-of-type(3) {
+  background-image: url("./assets/small\ business.png");
+}
+.wrap-effect-4 .item:nth-of-type(4) {
+  background-image: url("./assets/Artboard\ 1\ copy.png");
+}
+.wrap-effect-4 .item:last-of-type {
+  background-image: url("./assets/we\ are\ hiring\ worriors.png");
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(10deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-10deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(5deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+.carousel-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin: 10px 0;
+}
+
+.carousel-nav-item {
+  width: calc(90vw / 3); /* Distribute the shapes evenly */
+  height: 20px;
+  background-color: #333;
+  transition: height 0.3s ease, background-color 0.3s ease; /* Add transitions */
+
+}
+
+.carousel-nav-item-1 {
+  background-color: #151a1f;
+}
+
+.carousel-nav-item-2 {
+  background-color: #151a1f;
+}
+
+.carousel-nav-item-3 {
+  background-color: #151a1f;
+}
+
+.carousel-nav-item.active {
+  height: 30px; /* Double the height for the active shape */
+  background-color: #151a1f; /* Change background color for the active shape */
+}
+
+@media screen and (max-width: 768px) {
+  /* Adjust styles for smaller screens here */
+  .swiper-container {
+    height: 70%;
+  }
+
+  .carousel-nav-item {
+    width: calc(100% / 3);
+  }
+}
+
+#contact {
+  /* Same background style as #about */
+  --cursor-1-bg: #F2F3EB;
+  --cursor-1-bg-line: #151a1f;
+  background-color: var(--cursor-1-bg);
+  background-image: linear-gradient(
+      var(--cursor-1-bg-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    ),
+    linear-gradient(var(--cursor-1-bg-line) 1px, transparent 1px),
+    linear-gradient(
+      to bottom,
+      var(--cursor-1-bg-line) 1px,
+      var(--cursor-1-bg) 1px
+    );
+  background-size: 50px 100px;
+  background-position: center;
+  background-repeat: repeat;
+  cursor: none;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; 
+}
+
+#container {
+  border: solid 3px #151a1f;
+  background-color: #F2F3EB;
+  max-width: 768px;
+  margin: 60px auto;
+  position: relative;
+  width: 90vw;
+  cursor: none;
+}
+
+form {
+  padding: 37.5px;
+  margin: 50px 0;
+  cursor: none;
+}
+
+.title {
+  color: #151a1f;
+  font-size: 32px;
+  font-weight: 700;
+  
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.underline {
+  border-bottom: solid 2px #151a1f;
+  margin: -0.512em auto;
+  width: 80px;
+}
+
+.icon_wrapper {
+  margin: 50px auto 0;
+  width: 100%;
+}
+
+.icon {
+  display: block;
+  fill: #151a1f;
+  height: 50px;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.email {
+	float: right;
+	width: 45%;
+  cursor: none;
+
+}
+
+input[type='text'], [type='email'], select, textarea {
+	background: none;
+  border: none;
+	border-bottom: solid 2px #151a1f;
+	color: #151a1f;
+	font-size: 1.000em;
+  font-weight: 400;
+  letter-spacing: 1px;
+	margin: 0em 0 1.875em 0;
+	padding: 0 0 0.875em 0;
+  text-transform: uppercase;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+input[type='text']:focus, [type='email']:focus, textarea:focus {
+	outline: none;
+	padding: 0 0 0.875em 0;
+}
+
+.message {
+	float: none;
+}
+
+.name {
+	float: left;
+	width: 45%;
+}
+
+
+.subject {
+  width: 100%;
+  
+}
+
+input{
+  cursor: none;
+}
+
+.telephone {
+  width: 100%;
+}
+
+textarea {
+	line-height: 150%;
+	height: 150px;
+	resize: none;
+  width: 100%;
+  cursor: none;
+}
+
+::-webkit-input-placeholder {
+	color: #151a1f;
+}
+
+:-moz-placeholder { 
+	color: #151a1f;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: #151a1f;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: #151a1f;
+}
+
+#form_button {
+  background: none;
+  border: solid 2px #151a1f;
+  color: #151a1f;
+  cursor: pointer;
+  display: inline-block;
+  
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+  cursor: none;
+}
+
+#form_button:hover {
+  background: #151a1f;
+  color: #F2F3EB;
+}
+
+@media screen and (max-width: 768px) {
+  #container {
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 26px;
+  }
+  
+  .underline {
+    width: 68px;
+  }
+  
+  #form_button {
+    padding: 15px 25px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 18px;
+  }
+  
+  .icon {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .underline {
+    width: 53px;
+  }
+  
+  input[type='text'], [type='email'], select, textarea {
+    font-size: 0.875em;
+  }
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  text-align: left;
+  z-index: 1;
+  position: relative;
+}
+
+.description {
+  font-size: 75px;
+  line-height: 1.5;
+  transition: transform 0.3s ease;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #151a1f;
+  z-index: 2;
+  transition: left 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  cursor: none;
+}
+
+.sidebar.active {
+  left: 0;
+  width: 100%;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list li {
+  margin: 15px 0;
+  text-align: left;
+}
+
+.sidebar-list a {
+  text-decoration: none;
+  color: white;
+  font-size: 50px;
+}
+
+.sidebar-list a:hover {
+  color: #ffbc90;
+}
+
+.hamburger-icon {
+  z-index: 3;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
+  font-size: 40px;
+  transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.hamburger-icon.active {
+  transform: rotate(90deg);
+}
+
+.hamburger-icon:hover {
+  color: #ffbc90;
+}
+
+.social-icons {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 20px;
+  z-index: 55;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 36px;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #ffbc90;
+}
+
+footer {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 7;
+  padding: 1.5rem 2rem;
+  line-height: 1.25;
+  cursor: none;
+}
+
+footer span {
+  overflow: hidden;
+  user-select: none;
+  cursor: none;
+}
+
+footer span > * {
+  display: inline-block;
+  cursor: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  user-select: none;
+  cursor: none;
+}
+
+small.shift-in {
+  position: relative;
+  color: white;
+  cursor: none;
+}
+
+small.shift-in::after {
+  content: attr(data-text);
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  cursor: none;
+}
+
+.footer-text-color-change {
+  color: #151a1f; /* Change the text color to #151a1f */
+}
+
+.curzr-arrow-pointer {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  pointer-events: none; /* Ensure the cursor doesn't interfere with elements */
+  transition: transform 250ms, transform 100ms;
+  z-index: 9999; /* Ensure the cursor is on top of other content */
+  opacity: 0; /* Cursor starts hidden */
+  user-select: none; /* Prevent cursor selection */
+}
+
+/* Show the cursor on hover */
+body:hover .curzr-arrow-pointer {
+  opacity: 1;
+}
+
+/* Adjust cursor rotation and appearance on hover */
+body .curzr-hover:hover .curzr-arrow-pointer {
+  transform: translate(-50%, -50%) rotate(0deg);
+  border-color: var(--cursor-1-bg-line); /* Cursor border color on hover */
+  background-color: var(--cursor-1-bg); /* Cursor background color on hover */
+}
+
+.curzr-hover:hover {
+  cursor: none;
+}
+
+.social-icons a,
+.hamburger-icon,
+.sidebar-list a {
+  cursor: none;
+}
+
+.container-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #151a1f;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about-text {
+  flex: 1;
+  padding: 20px;
+  margin-right: 20px; /* Add margin to the right side */
+  font-size: large;
+  background-color: #f1f68f;
+}
+
+.about-image {
+  flex: 1;
+  padding: 20px;
+  margin-left: 20px; /* Add margin to the left side */
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.marquee-container-horizontal {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  font-size: 175px;
+  text-transform: uppercase;
+  color: #1f272e;
+}
+
+.horizontal-marquee {
+  animation: marquee-horizontal 10s linear normal infinite;
+  position: relative;
+}
+
+.marquee-text {
+  display: inline-block;
+  margin-left: 100%; /* Push the text outside the container */
+  padding-right: 20px; /* Add space for text to enter from the right */
+}
+
+@keyframes marquee-horizontal {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-260%);
+  }
+}
+
+/* CSS for Image Zoom-In on Hover */
+.zoom-in .zoom-img {
+  transition: transform 0.3s;
+}
+
+.zoom-in:hover .zoom-img {
+  transform: scale(1.1);
+}
+
+.h-track {
+  width: 100%;
+  height: 100vh;
+  overflow-x: auto;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.h-content-container {
+  position: relative;
+  max-width: unset;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  transition: transform 0.2s linear;
+}
+
+.h-content-container > * {
+  display: grid;
+  place-items: center;
+  min-width: 100vw;
+  height: 100%;
+}
+
+.invisible-scrollbar {
+  scrollbar-width: none;
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    scroll-behavior: smooth;
+  }
+
+  
+
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .description {
+    font-size: 24px;
+    line-height: 1.5;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #151a1f;
+    z-index: 555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    cursor: none;
+  }
+
+  .sidebar.active {
+    left: 0;
+    width: 100%;
+  }
+
+  .sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-list li {
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .sidebar-list a {
+    font-size: 18px;
+  }
+
+  .hamburger-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+
+  .hamburger-icon.active {
+    transform: rotate(90deg);
+  }
+
+  .social-icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-icons a {
+    font-size: 24px;
+  }
+
+  footer {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 7;
+    padding: 1rem 2rem;
+    line-height: 1.25;
+    cursor: none;
+  }
+
+  footer span {
+    overflow: hidden;
+    user-select: none;
+    cursor: none;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    cursor: none;
+  }
+
+  .container-about {
+    padding: 20px;
+    background-color: #b0efda;
+    color: #151a1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .about-text {
+    padding: 20px;
+    font-size: medium;
+    text-align: center;
+  }
+
+  .about-image {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .circle-container {
+    flex-direction: row; /* Display circles in a row on larger screens */
+  }
+
+  .circle {
+    width: calc(25vw - 20px); /* Adjust circle width for larger screens */
+    height: calc(
+      25vw - 20px
+    ); /* Set the height equal to the width for a circle shape */
+    font-size: 16px; /* Adjust font size for larger screens */
+    margin: 0 10px; /* Add margin between circles */
+  }
+}
